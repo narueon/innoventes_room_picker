@@ -1,7 +1,9 @@
 import React from 'react';
+import { Card, Divider } from 'antd'
+import 'antd/dist/antd.css';
 
 import { MAX_IN_ROOM, MAX_PEOPLE, MAX_ROOMS, MIN_ADULTS, MIN_CHILD, MIN_ROOMS } from './constants'
-import HotelItem from './HotelItem'
+import { CardHeader, HotelItem} from './HotelItem'
 
 class App extends React.Component {
 
@@ -115,56 +117,53 @@ class App extends React.Component {
     }
 
     render () {
+        let totalPeople = this.state.adults + this.state.child;
         return (
-            <div className="ui container">
-                <div>
-                    <div className="ui grid container">
-                        <div className="ui row">
-                            <div className="ui one wide column">
-                                <i className="users icon"></i>
-                            </div>
-                            <div className="ui ten wide column">
-                                <div>Choose number of People</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="ui segment">
+            <div className="ui container" style={{margin: "10px"}}>
+                <Card 
+                    title={
+                            <CardHeader
+                                icon="users icon"
+                                message="Choose number of People"
+                                style={{color: "#000080"}}
+                            />
+                    }
+                >
                     <div>
                         { /* Rooms */ }
-                        <div>
-                            <HotelItem
-                                itemName='Rooms'
-                                iconName="bed icon"
-                                count={this.state.rooms}
-                                inc={this.incRoom}
-                                dec={this.decRoom}
-                            />
-                        </div>
-                        <div class="ui divider"></div>
+                        <HotelItem
+                            itemName='Rooms'
+                            iconName="bed icon"
+                            count={this.state.rooms}
+                            inc={this.incRoom}
+                            dec={this.decRoom}
+                            disableDec={this.state.rooms === 1}
+                            disableInc={this.state.rooms === 5}
+                        />
+                        <Divider />
                         { /* Adults */ }
-                        <div>
-                            <HotelItem
-                                itemName='Adult'
-                                iconName="user icon"
-                                count={this.state.adults}
-                                inc={this.incAdult}
-                                dec={this.decAdult}
-                            />                        
-                        </div>
-                        <div class="ui divider"></div>
+                        <HotelItem
+                            itemName='Adult'
+                            iconName="user icon"
+                            count={this.state.adults}
+                            disableDec={this.state.adults === MIN_ADULTS}
+                            disableInc={totalPeople === MAX_PEOPLE}
+                            inc={this.incAdult}
+                            dec={this.decAdult}
+                        />                        
+                        <Divider />
                         { /* Children */ }
-                        <div>
-                            <HotelItem
-                                itemName='Children'
-                                iconName="child icon"
-                                count={this.state.child}
-                                inc={this.incChild}
-                                dec={this.decChild}
-                            />
-                        </div>
+                        <HotelItem
+                            itemName='Children'
+                            iconName="child icon"
+                            count={this.state.child}
+                            disableDec={this.state.child === MIN_CHILD}
+                            disableInc={totalPeople === MAX_PEOPLE}
+                            inc={this.incChild}
+                            dec={this.decChild}
+                        />
                     </div>
-                </div>
-                </div>
+                </Card>
             </div>
         );
     }
