@@ -2,9 +2,9 @@ import React from 'react';
 import { Button, Row, Col } from 'antd'
 import 'antd/dist/antd.css';
 
-import './HotelItem.css';
+import './AddRemItem.css';
 
-function HotelItem (props) {
+function AddRemItem (props) {
     return ( 
             <div>
                 <Row type="flex" justify="start" align="middle">
@@ -39,21 +39,7 @@ function HotelItem (props) {
         );
 }
 
-function CardHeader(props) {
-    return (
-            <div>
-                <Row type="flex" justify="start" align="middle">
-                    <div>
-                        <i className={props.icon} style={props.style}></i>
-                    </div>
-                    <Col span="6">
-                        <div style={props.style}>{props.message}</div>
-                    </Col>
-                </Row>
-            </div>
-    );
-}
+
 export {
-    HotelItem,
-    CardHeader
+    AddRemItem
 }
