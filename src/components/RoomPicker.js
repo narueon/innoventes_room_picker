@@ -18,7 +18,7 @@ class RoomPicker extends React.Component {
         let totalPeople = this.state.adults + this.state.child;
         let adults = this.state.adults;
         let child = this.state.child;
-        let canStay = this.state.rooms * 4;
+        let canStay = this.state.rooms * MAX_IN_ROOM;
         if (totalPeople > canStay){
             // * reduce the number of childern and adults until it matches canStay
             // * subtract the number of children and adults 
@@ -80,45 +80,33 @@ class RoomPicker extends React.Component {
     }
     
     incRoom = () => {
-        if(this.state.rooms < MAX_ROOMS){
-            this.setState((prevState)=>({rooms: prevState.rooms + 1}), this.roomIncCheck)
-            // this.setState({rooms: this.state.rooms + 1}, this.roomIncCheck)
-        }
+        this.setState((prevState)=>({rooms: prevState.rooms + 1}), this.roomIncCheck)
+        // this.setState({rooms: this.state.rooms + 1}, this.roomIncCheck)
     }
 
     decRoom = () => {
-        if(this.state.rooms > MIN_ROOMS) {
-            this.setState((prevState)=>({rooms: prevState.rooms - 1}), this.roomDecCheck)
-            // this.setState({rooms: this.state.rooms - 1}, this.roomDecCheck)
-        }
+        this.setState((prevState)=>({rooms: prevState.rooms - 1}), this.roomDecCheck)
+        // this.setState({rooms: this.state.rooms - 1}, this.roomDecCheck)
     }
 
     incAdult = () => {
-        if((this.state.adults + this.state.child) < MAX_PEOPLE){
-            this.setState((prevState)=>({adults: prevState.adults + 1}), this.peopleIncCheck)
-            // this.setState({adults: this.state.adults + 1}, this.peopleIncCheck)
-        }
+        this.setState((prevState)=>({adults: prevState.adults + 1}), this.peopleIncCheck)
+        // this.setState({adults: this.state.adults + 1}, this.peopleIncCheck)
     }
 
     decAdult = () => {
-        if(this.state.adults > MIN_ADULTS) {
-            this.setState((prevState)=>({adults: prevState.adults - 1}), this.peopleDecCheck)
-            // this.setState({adults: this.state.adults - 1}, this.peopleDecCheck)
-        }
+        this.setState((prevState)=>({adults: prevState.adults - 1}), this.peopleDecCheck)
+        // this.setState({adults: this.state.adults - 1}, this.peopleDecCheck)
     }
 
     incChild= () => {
-        if((this.state.adults + this.state.child) < MAX_PEOPLE){
-            this.setState((prevState)=>({child: prevState.child + 1}), this.peopleIncCheck)
-            // this.setState({child: this.state.child + 1}, this.peopleIncCheck)
-        }
+        this.setState((prevState)=>({child: prevState.child + 1}), this.peopleIncCheck)
+        // this.setState({child: this.state.child + 1}, this.peopleIncCheck)
     }
 
     decChild= () => {
-        if(this.state.child !== MIN_CHILD){
-            this.setState((prevState)=>({child: prevState.child - 1}), this.peopleDecCheck)
-            // this.setState({child: this.state.child - 1}, this.peopleDecCheck)
-        }
+        this.setState((prevState)=>({child: prevState.child - 1}), this.peopleDecCheck)
+        // this.setState({child: this.state.child - 1}, this.peopleDecCheck)
     }
 
     render () {
