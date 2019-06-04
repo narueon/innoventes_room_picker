@@ -6,11 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Clone the repo.
 
-        git clone <reponame>
+        git clone https://github.com/narueon/innoventes_room_picker.git
 
 2. Change directory 
 
-        cd <project name>
+        cd innoventes_room_picker
 
 3. Install dependencies.
 
