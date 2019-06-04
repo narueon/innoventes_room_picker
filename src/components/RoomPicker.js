@@ -132,6 +132,7 @@ class RoomPicker extends React.Component {
                             dec={this.decRoom}
                             disableDec={this.state.rooms === 1}
                             disableInc={this.state.rooms === 5}
+                            iconStyle={{fontSize: "20px", padding: "1px", color: "#000080"}}
                         />
                         <Divider />
                         { /* Adults */ }
@@ -143,6 +144,7 @@ class RoomPicker extends React.Component {
                             disableInc={totalPeople === MAX_PEOPLE}
                             inc={this.incAdult}
                             dec={this.decAdult}
+                            iconStyle={{fontSize: "20px", padding: "1px", color: "#000080"}}
                         />                        
                         <Divider />
                         { /* Children */ }
@@ -154,6 +156,7 @@ class RoomPicker extends React.Component {
                             disableInc={totalPeople === MAX_PEOPLE}
                             inc={this.incChild}
                             dec={this.decChild}
+                            iconStyle={{fontSize: "20px", padding: "1px", color: "#000080"}}
                         />
                     </div>
                 </Card>

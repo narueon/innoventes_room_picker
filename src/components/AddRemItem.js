@@ -9,7 +9,7 @@ function AddRemItem (props) {
             <div>
                 <Row type="flex" justify="start" align="middle">
                     <div>
-                        <i className={props.iconName + " itemicon"} style={{fontSize: "20px", padding: "1px", color: "#000080"}} />
+                        <i className={props.iconName} style={props.iconStyle}/>
                     </div>
                     <Col xs={16} sm={16} md={16} lg={18} xl={20}>
                         <div style={{fontSize: "16px"}}>{props.itemName}</div>
